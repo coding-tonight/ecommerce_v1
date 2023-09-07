@@ -1,0 +1,17 @@
+/* imports */
+@import './App.css';
+
+/* ==================================== */
+/* reset all the default css  */
+* , *::after , *::before { 
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+/* ==================================== */
+
+
+/* navbar classes */
+
+
+
