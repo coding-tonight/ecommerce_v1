@@ -1,7 +1,8 @@
-// import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Layout, theme } from "antd";
 import Navbar from "../Components/Navbar";
+import Menus from "../Components/Menus";
+import { headerStyle } from "../assets/js/style";
 
 const { Header, Content, Footer } = Layout;
 
@@ -17,14 +18,25 @@ const AppLayout = ({ children }) => {
         <Header
           style={{
             background: colorBgContainer,
-            paddingInline: 50,
-            lineHeight: "64px",
-            height: "80px",
+            ...headerStyle,
           }}
         >
           <Navbar />
         </Header>
-        <Layout>
+        <Header
+          style={{
+            background: "white",
+            height: "10px",
+            ...headerStyle,
+          }}
+        >
+          <Menus />
+        </Header>
+        <Layout
+          style={{
+            marginTop: "50px",
+          }}
+        >
           <Content>{children}</Content>
         </Layout>
         <Footer>this is footer</Footer>
