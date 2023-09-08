@@ -1,9 +1,10 @@
 import AppLayout from "../../Layouts/AppLayout";
+import Carousels from "../../Components/Carousel";
 const Home = () => {
   return (
     <>
       <AppLayout>
-        <h1 className="text-3xl underline">this is homepages</h1>
+        <Carousels />
       </AppLayout>
     </>
   );

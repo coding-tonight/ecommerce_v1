@@ -4,4 +4,8 @@ const headerStyle = {
     height: "80px",
 }
 
-export { headerStyle };
+const contentStyle = {
+    minHeight: '100vh'
+}
+
+export { headerStyle  , contentStyle };

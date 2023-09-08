@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Layout, theme } from "antd";
 import Navbar from "../Components/Navbar";
 import Menus from "../Components/Menus";
-import { headerStyle } from "../assets/js/style";
+import { headerStyle, contentStyle } from "../assets/js/style";
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,12 +32,14 @@ const AppLayout = ({ children }) => {
         >
           <Menus />
         </Header>
-        <Layout
-          style={{
-            marginTop: "50px",
-          }}
-        >
-          <Content>{children}</Content>
+        <Layout>
+          <Content
+            style={{
+              ...contentStyle,
+            }}
+          >
+            {children}
+          </Content>
         </Layout>
         <Footer>this is footer</Footer>
       </Layout>
