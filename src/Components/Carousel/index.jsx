@@ -1,6 +1,9 @@
 import { Carousel } from "antd";
 import { slide1, slide2 } from "../../assets/js/image";
 
+/**
+ *  carousel form now
+ */
 const Carousels = () => {
   const contentStyle = {
     margin: 0,
