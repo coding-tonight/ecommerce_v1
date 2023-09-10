@@ -13,7 +13,7 @@ const Carousels = () => {
   };
   return (
     <>
-      <Carousel draggable infinite lazyLoad>
+      <Carousel draggable infinite lazyLoad autoplay>
         <div>
           <img src={slide1} style={contentStyle} />
         </div>

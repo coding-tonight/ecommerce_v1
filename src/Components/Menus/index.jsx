@@ -35,7 +35,7 @@ const options = [
     // icon: <UnorderedListOutlined />,
   },
   {
-    label: "wedding",
+    label: "Wedding",
     key: "wedding",
     // icon: <UnorderedListOutlined />,
   },
