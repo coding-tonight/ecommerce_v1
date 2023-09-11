@@ -1,23 +1,34 @@
+import { useState } from 'react';
 import { Space, Input, Badge } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
+import CartDrawer from "../Drawer/CartDrawer";
 
 const { Search } = Input;
 
 const Navbar = () => {
+  const [openCart, setopenCart] = useState(false);
+
   /**
    *  media query
    * @prams
    * @type @boolean
    */
+
   const laptopWidth = useMedia("laptop");
   const mobileWidth = useMedia("mobile");
+  /* end here */
 
   //  search function
   const onSearch = () => {
     console.log("result of the search");
   };
+
+  const openCartFeature = () => {
+    setopenCart(true);
+  }
+
 
   return (
     <>
@@ -51,6 +62,7 @@ const Navbar = () => {
         >
           <Badge count={4}>
             <ShoppingCartOutlined
+            onClick={openCartFeature}
               style={{
                 fontSize: "20px",
               }}
@@ -59,6 +71,8 @@ const Navbar = () => {
           <FiUser />
         </Space>
       </section>
+      {/* carts */}
+      <CartDrawer  setopenCart={setopenCart} openCart={openCart}/>
     </>
   );
 };
