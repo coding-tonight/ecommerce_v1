@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Layout, theme } from "antd";
 import Navbar from "../Components/Navbar";
+import AppFooter from '../Components/Footer';
 import Menus from "../Components/Menus";
 import { headerStyle, contentStyle } from "../assets/js/style";
 
@@ -41,7 +42,9 @@ const AppLayout = ({ children }) => {
             {children}
           </Content>
         </Layout>
-        <Footer>this is footer</Footer>
+        <Footer>
+           <AppFooter />
+        </Footer>
       </Layout>
     </>
   );

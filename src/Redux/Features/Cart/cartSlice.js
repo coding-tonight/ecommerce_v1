@@ -10,7 +10,7 @@ const cartSlice = createSlice({
     intialState,
     reducers: {
         /**
-         * 
+         *  cart feature such as add , update , delete 
          * @param {*} state 
          * @param {*} action 
          */

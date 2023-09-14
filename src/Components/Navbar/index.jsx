@@ -25,6 +25,7 @@ const Navbar = () => {
     console.log("result of the search");
   };
 
+//  function to open the cart
   const openCartFeature = () => {
     setopenCart(true);
   }
