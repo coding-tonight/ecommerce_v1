@@ -12,7 +12,7 @@ const AppLayout = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-  
+
   // console.log(import.meta.env)
   return (
     <>
@@ -43,8 +43,12 @@ const AppLayout = ({ children }) => {
             {children}
           </Content>
         </Layout>
-        <Footer>
-           <AppFooter />
+        <Footer style={{
+          background: "#000",
+          marginTop: '10px',
+          color: 'white'
+        }}>
+          <AppFooter />
         </Footer>
       </Layout>
     </>

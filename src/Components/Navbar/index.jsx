@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Space, Input, Badge } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined , SearchOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
 import CartDrawer from "../Drawer/CartDrawer";
@@ -45,12 +45,20 @@ const Navbar = () => {
         <div className="logo">Bhumi Forever Fashion</div>
 
         <Space.Compact size="large">
-          <Search
+          {mobileWidth ? (
+            <>
+                <SearchOutlined className='text-lg' />
+            </>
+          ):(
+            <>
+               <Search
             placeholder="Search in the Bhumi Fashion"
             onSearch={onSearch}
             className=""
             style={{ width: laptopWidth ? "100%" : 600 }}
           />
+            </>
+          )}
         </Space.Compact>
 
         <Space
