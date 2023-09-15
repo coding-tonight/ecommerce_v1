@@ -1,5 +1,5 @@
 import { Form, Input, Button, Card } from 'antd';
-import { MailOutlined ,LockOutlined } from '@ant-design/icons'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
 import AppLayout from '../../../Layouts/AppLayout';
 
 const Login = () => {
@@ -8,7 +8,7 @@ const Login = () => {
             <AppLayout>
                 <section className="flex justify-center items-center mt-5">
                     <Card>
-                         <h1 className='text-xl text-center my-2'>Login</h1>
+                        <h1 className='text-xl text-center my-2'>Login</h1>
                         <Form className='w-72'>
                             <Form.Item
                                 hasFeedback
@@ -16,12 +16,12 @@ const Login = () => {
                                 validateTrigger="onBlur"
                                 rules={[
                                     {
-                                        type: "email" ,
+                                        type: "email",
                                         required: true
                                     }
                                 ]}
                             >
-                                <Input placeholder="Email" prefix={<MailOutlined /> } />
+                                <Input placeholder="Email" prefix={<MailOutlined />} />
                             </Form.Item>
                             <Form.Item
                                 hasFeedback
@@ -29,7 +29,7 @@ const Login = () => {
                                 validateTrigger="onBlur"
                                 rules={[
                                     {
-                                        min: 8,
+                                        min: 9,
                                         required: true
                                     },
                                 ]}
@@ -38,7 +38,7 @@ const Login = () => {
                             </Form.Item>
 
                             <Form.Item>
-                                <Button  className="bg-black text-white" type="dark" htmlType="submit" block>
+                                <Button className="bg-black text-white" type="dark" htmlType="submit" block>
                                     Submit
                                 </Button>
                             </Form.Item>
