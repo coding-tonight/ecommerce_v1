@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Space, Input, Badge } from "antd";
-import { ShoppingCartOutlined , SearchOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
 import CartDrawer from "../Drawer/CartDrawer";
@@ -25,7 +25,7 @@ const Navbar = () => {
     console.log("result of the search");
   };
 
-//  function to open the cart
+  //  function to open the cart
   const openCartFeature = () => {
     setopenCart(true);
   }
@@ -47,16 +47,22 @@ const Navbar = () => {
         <Space.Compact size="large">
           {mobileWidth ? (
             <>
-                <SearchOutlined className='text-lg' />
+              <SearchOutlined className='text-lg cursor-pointer' />
+              {/* <Search
+                placeholder="Search in the Bhumi Fashion"
+                onSearch={onSearch}
+                className=""
+                style={{ width: laptopWidth ? "100%" : 600 }}
+              /> */}
             </>
-          ):(
+          ) : (
             <>
-               <Search
-            placeholder="Search in the Bhumi Fashion"
-            onSearch={onSearch}
-            className=""
-            style={{ width: laptopWidth ? "100%" : 600 }}
-          />
+              <Search
+                placeholder="Search in the Bhumi Fashion"
+                onSearch={onSearch}
+                className=""
+                style={{ width: laptopWidth ? "100%" : 600 }}
+              />
             </>
           )}
         </Space.Compact>
@@ -71,7 +77,7 @@ const Navbar = () => {
         >
           <Badge count={4}>
             <ShoppingCartOutlined
-            onClick={openCartFeature}
+              onClick={openCartFeature}
               style={{
                 fontSize: "20px",
               }}
@@ -81,7 +87,7 @@ const Navbar = () => {
         </Space>
       </section>
       {/* carts */}
-      <CartDrawer  setopenCart={setopenCart} openCart={openCart}/>
+      <CartDrawer setopenCart={setopenCart} openCart={openCart} />
     </>
   );
 };

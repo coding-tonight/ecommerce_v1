@@ -1,23 +1,50 @@
-import { Form, Alert, Input } from 'antd';
+import { Form, Input, Button, Card } from 'antd';
+import AppLayout from '../../../Layouts/AppLayout';
 
 const Login = () => {
     return (
         <>
-            <Form>
-                <Form.Item
-                    hasFeedback
-                    label="Field A"
-                    name="field_a"
-                    validateTrigger="onBlur"
-                    rules={[
-                        {
-                            max: 3,
-                        },
-                    ]}
-                >
-                    <Input placeholder="Validate required onBlur" />
-                </Form.Item>
-            </Form>
+            <AppLayout>
+                <section className="flex justify-center items-center mt-5">
+                    <Card>
+                         <h1 className='text-xl text-center my-2'>Login</h1>
+                        <Form className='w-72'>
+                            <Form.Item
+                                hasFeedback
+                                name="email"
+                                validateTrigger="onBlur"
+                                rules={[
+                                    {
+                                        type: "email" ,
+                                        required: true
+                                    }
+                                ]}
+                            >
+                                <Input placeholder="Email" />
+                            </Form.Item>
+                            <Form.Item
+                                hasFeedback
+                                name="password"
+                                validateTrigger="onBlur"
+                                rules={[
+                                    {
+                                        min: 8,
+                                        required: true
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="password" type='password' />
+                            </Form.Item>
+
+                            <Form.Item>
+                                <Button  className="bg-black text-white" type="dark" htmlType="submit" block>
+                                    Submit
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </Card>
+                </section>
+            </AppLayout>
         </>
     );
 }
