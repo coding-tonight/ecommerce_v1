@@ -1,4 +1,5 @@
 import { Form, Input, Button, Card } from 'antd';
+import { MailOutlined ,LockOutlined } from '@ant-design/icons'
 import AppLayout from '../../../Layouts/AppLayout';
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
                                     }
                                 ]}
                             >
-                                <Input placeholder="Email" />
+                                <Input placeholder="Email" prefix={<MailOutlined /> } />
                             </Form.Item>
                             <Form.Item
                                 hasFeedback
@@ -33,7 +34,7 @@ const Login = () => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="password" type='password' />
+                                <Input placeholder="password" type='password' prefix={<LockOutlined />} />
                             </Form.Item>
 
                             <Form.Item>
