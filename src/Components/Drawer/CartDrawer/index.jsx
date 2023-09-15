@@ -52,7 +52,7 @@ const CartDrawer = ({ openCart, setopenCart }) => {
                                 <MinusOutlined />
                             </Button>
                             <span className=''>
-                                <Badge count={qty} color="#5C5470" />
+                                <Badge count={qty > 0 ? qty : 1} color="#5C5470" />
                             </span>
                             <Button onClick={increment}>
                                 <PlusOutlined />

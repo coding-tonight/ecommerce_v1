@@ -12,7 +12,8 @@ const AppLayout = ({ children }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
+  
+  // console.log(import.meta.env)
   return (
     <>
       <Layout>
