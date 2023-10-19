@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { TfiArrowRight } from "react-icons/tfi";
-import { Divider } from "antd";
+import { Divider  } from "antd";
 import Cards from '../Card/index';
 import StickSlider from "../StickSliider";
+
 
 const Products = () => {
   return (
