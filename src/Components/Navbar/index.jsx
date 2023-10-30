@@ -42,7 +42,7 @@ const Navbar = () => {
           margin: "0 auto",
         }}
       >
-        <div className="logo">Bhumi Forever Fashion</div>
+        <div className="logo">{ import.meta.env.VITE_APP_NAME ?? 'Bhumi Forever Fashion' }</div>
 
         <Space.Compact size="large">
           {mobileWidth ? (
