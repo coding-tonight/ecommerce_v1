@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Space, Input, Badge } from "antd";
 import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
@@ -28,8 +29,7 @@ const Navbar = () => {
   //  function to open the cart
   const openCartFeature = () => {
     setopenCart(true);
-  }
-
+  };
 
   return (
     <>
@@ -42,12 +42,14 @@ const Navbar = () => {
           margin: "0 auto",
         }}
       >
-        <div className="logo">{ import.meta.env.VITE_APP_NAME ?? 'Bhumi Forever Fashion' }</div>
+        <div className="logo">
+          {import.meta.env.VITE_APP_NAME ?? "Bhumi Forever Fashion"}
+        </div>
 
         <Space.Compact size="large">
           {mobileWidth ? (
             <>
-              <SearchOutlined className='text-lg cursor-pointer' />
+              <SearchOutlined className="text-lg cursor-pointer" />
               {/* <Search
                 placeholder="Search in the Bhumi Fashion"
                 onSearch={onSearch}
@@ -83,7 +85,10 @@ const Navbar = () => {
               }}
             />
           </Badge>
-          <FiUser />
+ 
+          <Link className="text-sm" to="/login">
+            Login | Register
+          </Link>
         </Space>
       </section>
       {/* carts */}
