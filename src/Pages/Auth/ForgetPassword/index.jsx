@@ -1,11 +1,36 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Form, Input, Button, Card } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import AppLayout from "../../../Layouts/AppLayout";
+import IsLoading from "../../../Common/Spin";
+import { forgetPassword } from "../../../config/axios/config";
+import { showErrorNotification, showSuccessNotification } from "../../../Common/Notification";
 
 const ForgetPassword = () => {
-    const [processing, setProcessing] = useState(false);
-    const [email, setEmail] = useState(null);
+  const [processing, setProcessing] = useState(false);
+  const [email, setEmail] = useState(null);
+
+  // forget password send email or mail to verfiy if it exits or not
+  const sendEmail = async () => {
+    setProcessing(true);
+    try {
+      const response = await forgetPassword({
+        email: email
+      });
+      console.log(response.data);
+      showSuccessNotification('success', 'Otp is successfully sent.')
+
+    } catch ({ response }) {
+      console.log(response)
+      if (response) {
+        showErrorNotification("Error", response.data.MSG);
+        return;
+      }
+      showErrorNotification("Error", "Ops something went wrong!");
+    } finally {
+      setProcessing(false);
+    }
+  };
 
   return (
     <>
@@ -20,7 +45,7 @@ const ForgetPassword = () => {
                 validateTrigger="onBlur"
                 rules={[
                   {
-                    type: 'email',
+                    type: "email",
                     required: true,
                   },
                 ]}
@@ -31,14 +56,14 @@ const ForgetPassword = () => {
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </Form.Item>
-           
+
               <Form.Item>
                 <Button
                   className="bg-black text-white"
                   type="dark"
                   htmlType="submit"
                   block
-                //   onClick={login}
+                  onClick={sendEmail}
                 >
                   {processing ? <IsLoading /> : "submit"}
                 </Button>
@@ -50,6 +75,5 @@ const ForgetPassword = () => {
     </>
   );
 };
-
 
 export default ForgetPassword;

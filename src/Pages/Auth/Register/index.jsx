@@ -5,7 +5,10 @@ import { LockOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
 import AppLayout from "../../../Layouts/AppLayout";
 import IsLoading from "../../../Common/Spin";
 import { register } from "../../../config/axios/config";
-import { showErrorNotification } from "../../../Common/Notification";
+import {
+  showErrorNotification,
+  showSuccessNotification,
+} from "../../../Common/Notification";
 
 const Register = () => {
   const [processing, setProcessing] = useState(false);
@@ -18,17 +21,34 @@ const Register = () => {
   //   const [passwordVisable, setPasswordVisable] = useState(false)
 
   const registerUser = async () => {
+    // setProcessing to true for loading animation while process
     setProcessing(true);
     try {
-      const response = await register();
-      console.log(response.data);
+      const response = await register({
+        first_name: fname,
+        last_name: lname,
+        email: email,
+        username: username,
+        password: password,
+        confirm_password: confirm_password,
+      });
+      // console.log(response.data);
+      if (response) {
+        showSuccessNotification("Sucesss", response.data.MSG);
+        // redirect to the login pages after register
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
+      }
     } catch ({ response }) {
-        console.log(response.data)
+      // console.log(response.data);
       if (response) {
         showErrorNotification("Error", response.data.MSG);
         return;
       }
-        showErrorNotification('Error', 'Ops something went wrong!')
+      // if response is empty or null 
+      showErrorNotification("Error", "Ops something went wrong!");
+
     } finally {
       setProcessing(false);
     }

@@ -5,11 +5,15 @@ import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
 import CartDrawer from "../Drawer/CartDrawer";
+import { auth } from "../../Common/AuthContext";
 
 const { Search } = Input;
 
 const Navbar = () => {
   const [openCart, setopenCart] = useState(false);
+  const authData = auth();  // get user data for the auth context 
+
+  // console.log(authData);
 
   /**
    *  media query
@@ -85,10 +89,18 @@ const Navbar = () => {
               }}
             />
           </Badge>
- 
-          <Link className="text-sm" to="/login">
-            Login | Register
-          </Link>
+          {/* if auth user is login then show drop or login or register link */}
+          {authData ? (
+            <>
+              <FiUser />
+            </>
+          ) : (
+            <>
+              <Link className="text-sm" to="/login">
+                Login | Register
+              </Link>
+            </>
+          )}
         </Space>
       </section>
       {/* carts */}
