@@ -15,6 +15,12 @@ const options = [
       {
         label: "Option 2",
         key: "setting:2",
+        children: [
+          {
+            label: "Option 1",
+            key: "setting:1",
+          },
+        ]
       },
     ],
   },
