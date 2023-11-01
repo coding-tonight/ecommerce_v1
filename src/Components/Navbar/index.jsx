@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Space, Input, Badge } from "antd";
+import { Space, Input, Badge, Dropdown } from "antd";
 import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
@@ -11,7 +11,62 @@ const { Search } = Input;
 
 const Navbar = () => {
   const [openCart, setopenCart] = useState(false);
-  const authData = auth();  // get user data for the auth context 
+  const authData = auth(); // get user data for the auth context
+
+  //  menu for user avatar
+  const items = [
+    {
+      key: "0",
+      type: 'group',
+      label: (
+        <a
+          // target="_blank"
+          rel="noopener noreferrer"
+          href="#"
+        >
+          {authData?.username} 
+        </a>
+      ),
+    },
+    {
+      key: "1",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          Profile
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          setting
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.aliyun.com"
+        >
+          Logout
+        </a>
+      ),
+      // icon: <SmileOutlined />,
+      // disabled: true
+    },
+  ];
 
   // console.log(authData);
 
@@ -92,7 +147,9 @@ const Navbar = () => {
           {/* if auth user is login then show drop or login or register link */}
           {authData ? (
             <>
-              <FiUser />
+              <Dropdown menu={{ items }} placement="bottomRight">
+                <FiUser />
+              </Dropdown>
             </>
           ) : (
             <>
