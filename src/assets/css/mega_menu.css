@@ -1,0 +1,36 @@
+.mega_menu {
+    color: #000;
+    position: relative;
+}
+
+/* .mega_menu .categories:hover {
+    border-bottom: #000 2px solid;
+    border-width: 20%;
+} */
+
+.mega_menu .categories .menu {
+    position: absolute;
+    height: 400px;
+    width: 80vw;
+    padding: 20px;
+    top: 50px;
+    border-radius: 20px;
+    opacity: 1;
+    /* visibility: visible; */
+}
+
+.default { 
+    background-color: #fff;
+    z-index: 1;
+    transition: all 3s ease-in-out;
+    /* font-size: larger; */
+}
+
+.hidden {
+    /* transition: all 2s ease-in-out; */
+    /* height: 0; */
+    /* visibility: hidden; */
+    top: 0;
+    height: 0;
+    opacity: 0.3;
+}

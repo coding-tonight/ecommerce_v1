@@ -13,6 +13,13 @@ const Navbar = () => {
   const [openCart, setopenCart] = useState(false);
   const authData = auth(); // get user data for the auth context
 
+  // logout function for now
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
+
   //  menu for user avatar
   const items = [
     {
@@ -58,7 +65,7 @@ const Navbar = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.aliyun.com"
+          onClick={logout}
         >
           Logout
         </a>
