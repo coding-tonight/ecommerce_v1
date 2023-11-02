@@ -48,7 +48,7 @@ const ProductPage = () => {
                 <div className="embla">
                   <div className="embla__viewport" ref={emblaMainRef}>
                     <div className="embla__container">
-                      {slides.map((index) => (
+                      {/* {slides.map((index) => (
                         <div className="embla__slide" key={index}>
                           <div className="embla__slide__number">
                             <span>{index + 1}</span>
@@ -59,7 +59,7 @@ const ProductPage = () => {
                             alt="Your alt text"
                           />
                         </div>
-                      ))}
+                      ))} */}
                     </div>
                   </div>
 

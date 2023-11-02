@@ -17,14 +17,14 @@ const Navbar = () => {
   const items = [
     {
       key: "0",
-      type: 'group',
+      type: "group",
       label: (
         <a
           // target="_blank"
           rel="noopener noreferrer"
           href="#"
         >
-          {authData?.username} 
+          {authData?.username}
         </a>
       ),
     },
@@ -101,9 +101,9 @@ const Navbar = () => {
           margin: "0 auto",
         }}
       >
-        <div className="logo">
+        <Link to="/" className="logo">
           {import.meta.env.VITE_APP_NAME ?? "Bhumi Forever Fashion"}
-        </div>
+        </Link>
 
         <Space.Compact size="large">
           {mobileWidth ? (

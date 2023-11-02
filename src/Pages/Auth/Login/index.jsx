@@ -27,6 +27,7 @@ const Login = () => {
       const userData = {
         username: response.data.data.user,
         email: response.data.data.email,
+        is_superadmin: response.data.data.is_superadmin,
         is_active: response.data.data.is_active,
         joined: response.data.data.joined,
        }
