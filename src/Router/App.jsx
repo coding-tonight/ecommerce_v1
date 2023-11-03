@@ -5,6 +5,7 @@ import Register from "../Pages/Auth/Register";
 import ProductPage from "../Pages/Reusable/Product";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import GuestMiddleware from "../middleware/GuestMiddleware";
+import AdminMiddlware from "../middleware/AdminMIddleware";
 import AdminRoute from "./admin";
 
 const App = () => {
@@ -20,11 +21,15 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/forget/password" element={<ForgetPassword />} />
         </Route>
-        
+
         {/* admin routes */}
-        {AdminRoute.map((name) => {
-          return  <Route key={name.key} path={name.path} element={name.element} />;
-        })}
+        <Route element={<AdminMiddlware />}>
+          {AdminRoute.map((name) => {
+            return (
+              <Route key={name.key} path={name.path} element={name.element} />
+            );
+          })}
+        </Route>
       </Routes>
     </>
   );

@@ -47,7 +47,7 @@ const Menu = ({ title, setOpenMenu, openMenu }) => {
                </ul>
             </Col>
             <Col className="gutter-row" span={6}>
-               <img src={Image} alt="" srcset="" />
+               <img src={Image} alt=""  />
             </Col>
           </Row>
         </div>

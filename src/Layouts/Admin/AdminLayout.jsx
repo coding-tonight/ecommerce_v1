@@ -11,7 +11,7 @@ import {
   DashOutlined,
 } from "@ant-design/icons";
 
-import { Layout, Menu, Button, theme } from "antd";
+import { Layout, Menu, Button, theme, Typography } from "antd";
 const { Header, Sider, Content } = Layout;
 
 const AdminLayout = ({ children }) => {
@@ -30,7 +30,16 @@ const AdminLayout = ({ children }) => {
           height: "100vh",
         }}
       >
-        {/* <h4 className="text-white">{import.meta.env.VITE_APP_NAME ?? "Bhumi Forever Fashion"}</h4> */}
+        <Typography.Title
+          style={{
+            color: "#fff",
+            textAlign: 'center',
+            fontSize: '2rem',
+            marginTop: '3px'
+          }}
+        >
+          CMS
+        </Typography.Title>
         <Menu
           theme="dark"
           mode="inline"
