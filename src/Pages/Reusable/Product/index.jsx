@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Card, Image, Rate, Segmented, InputNumber } from "antd";
+import { Card, Image, Rate, Segmented, InputNumber, Button } from "antd";
 import useEmblaCarousel from "embla-carousel-react";
 
 import AppLayout from "../../../Layouts/AppLayout";
@@ -149,8 +149,11 @@ const ProductPage = () => {
                   </div>
                   {/* Quantity  */}
                   <div className="my-2">
-                     <h1>Qunaitity:</h1>
+                    <h1>Qunaitity:</h1>
                     <InputNumber min={1} max={10} defaultValue={3} />;
+                  </div>
+                  <div className="w-40">
+                    <Button>Add TO Cart</Button>
                   </div>
                 </div>
               </div>
