@@ -12,6 +12,7 @@ import { showErrorNotification } from "../../../Common/Notification";
 import { publicAxios } from "../../../config/axios/config";
 import IsLoading from "../../../Common/Spin";
 // import { userLogin } from "../../../config";
+import { base64Encode } from "../../../Common/common";
 
 const Login = () => {
   const [processing, setProcessing] = useState(false);
@@ -42,7 +43,7 @@ const Login = () => {
         };
         // storage in the localstorages user data and token
         localStorage.setItem("token", JSON.stringify(response.data.data.token));
-        localStorage.setItem("userData", JSON.stringify(userData));
+        localStorage.setItem("userData", base64Encode(JSON.stringify(userData)));
 
         if (userData.is_superuser) {
           window.location.href = "/dashboard";

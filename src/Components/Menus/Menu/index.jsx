@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "antd";
 import { UnorderedListOutlined } from "@ant-design/icons";
-import Image from '../../../../public/mega_menu/menu_image.jpg'
+import Image from '/mega_menu/menu_image.jpg'
 
 const Menu = ({ title, setOpenMenu, openMenu }) => {
   const toggle = () => {

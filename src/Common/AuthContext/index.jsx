@@ -1,9 +1,10 @@
 import { createContext, useContext } from "react";
+import { base64Decode } from "../common";
 
 const AuthContext = createContext(null);
 
 const getUserData = () => {
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = JSON.parse(base64Decode(localStorage.getItem("userData")));
 
   if (!userData) return;
 

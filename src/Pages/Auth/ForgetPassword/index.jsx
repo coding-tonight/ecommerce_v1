@@ -20,10 +20,11 @@ const ForgetPassword = () => {
       console.log(response.data);
       showSuccessNotification('success', 'Otp is successfully sent.')
 
-    } catch ({ response }) {
-      console.log(response)
-      if (response) {
-        showErrorNotification("Error", response.data.MSG);
+    } catch (error) {
+      console.log(error)
+
+      if (error) {
+        showErrorNotification("Error", error.response.data.MSG);
         return;
       }
       showErrorNotification("Error", "Ops something went wrong!");
