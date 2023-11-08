@@ -4,11 +4,11 @@ import { base64Decode } from "../common";
 const AuthContext = createContext(null);
 
 const getUserData = () => {
-  const userData = JSON.parse(base64Decode(localStorage.getItem("userData")));
+  const userData = localStorage.getItem("userData");
 
   if (!userData) return;
 
-  return userData ?? null;
+  return JSON.parse(base64Decode(userData)) ?? null;
 };
 
 export const auth = () => {
