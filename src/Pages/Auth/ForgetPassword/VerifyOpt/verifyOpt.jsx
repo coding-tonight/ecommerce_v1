@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { Form, Input, Button, Card } from "antd";
 import { MailOutlined } from "@ant-design/icons";
-import AppLayout from "../../../Layouts/AppLayout";
-import IsLoading from "../../../Common/Spin";
-import { forgetPassword } from "../../../config/axios/config";
-import { showErrorNotification, showSuccessNotification } from "../../../Common/Notification";
+import AppLayout from "@/Layouts/AppLayout";
+import IsLoading from "@/Common/Spin";
+import { forgetPassword } from "@/config/axios/config";
+import { showErrorNotification, showSuccessNotification } from "@/Common/Notification";
 
-const ForgetPassword = () => {
+const VerifyOtp = () => {
   const [processing, setProcessing] = useState(false);
-  const [email, setEmail] = useState(null);
+  const [opt, setOtp] = useState(null);
 
   // forget password send email or mail to verfiy if it exits or not
-  const sendEmail = async () => {
+  const sendOtp = async () => {
     setProcessing(true);
     try {
       const response = await forgetPassword({
-        email: email
+        opt: opt
       });
       console.log(response.data);
       if(response.data) {
@@ -43,7 +43,7 @@ const ForgetPassword = () => {
       <AppLayout>
         <section className="flex justify-center items-center mt-5">
           <Card>
-            <h1 className="text-xl text-center my-2">Forget Password</h1>
+            <h1 className="text-xl text-center my-2">Verify OTP</h1>
             <Form className="w-96 h-50">
               <Form.Item
                 hasFeedback
@@ -51,15 +51,15 @@ const ForgetPassword = () => {
                 validateTrigger="onBlur"
                 rules={[
                   {
-                    type: "email",
+                    type: "text",
                     required: true,
                   },
                 ]}
               >
                 <Input
-                  placeholder="Email"
+                  placeholder="OTP"
                   prefix={<MailOutlined />}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) => setOtp(event.target.value)}
                 />
               </Form.Item>
 
@@ -69,9 +69,9 @@ const ForgetPassword = () => {
                   type="dark"
                   htmlType="submit"
                   block
-                  onClick={sendEmail}
+                  onClick={sendOtp}
                 >
-                  {processing ? <IsLoading /> : "submit"}
+                  {processing ? <IsLoading /> : "Verify"}
                 </Button>
               </Form.Item>
             </Form>
@@ -82,4 +82,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default VerifyOtp;
