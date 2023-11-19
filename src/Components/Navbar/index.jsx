@@ -5,7 +5,8 @@ import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { FiUser } from "react-icons/fi";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
 import CartDrawer from "../Drawer/CartDrawer";
-import { auth } from "../../Common/AuthContext";
+import { auth } from "@/Common/AuthContext";
+import { Logo } from '@/Common/image'
 
 const { Search } = Input;
 
@@ -108,8 +109,9 @@ const Navbar = () => {
           margin: "0 auto",
         }}
       >
-        <Link to="/" className="logo">
-          {import.meta.env.VITE_APP_NAME ?? "Bhumi Forever Fashion"}
+        <Link to="/" className="logo items-center">
+          <img src={Logo} height={140} width={140}  />
+          {/* {import.meta.env.VITE_APP_NAME ?? "Bhumi Forever Fashion"} */}
         </Link>
 
         <Space.Compact size="large">

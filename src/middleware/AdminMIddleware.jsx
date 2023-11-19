@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom"
+import { base64Decode } from "@/Common/common"
 
 /**
  * middleware for admin routes 
@@ -6,7 +7,7 @@ import { Outlet } from "react-router-dom"
  */
 
 const AdminMiddlware = () => {
-    const auth = JSON.parse(localStorage.getItem('userData')) ?? false
+    const auth = JSON.parse(base64Decode(localStorage.getItem('userData'))) ?? false
     // if user is superuser then give access to the cms dashboard
     if(auth.is_superuser) {
         return <Outlet />

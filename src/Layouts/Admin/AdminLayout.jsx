@@ -4,14 +4,13 @@ import PropTypes from "prop-types";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
-  DashboardOutlined,
   UserOutlined,
-  VideoCameraOutlined,
   DashOutlined,
 } from "@ant-design/icons";
 
-import { Layout, Menu, Button, theme, Typography } from "antd";
+import Sidebar from "@/Components/Admin/sidebar";
+
+import { Layout, Button, theme, Typography } from "antd";
 const { Header, Sider, Content } = Layout;
 
 const AdminLayout = ({ children }) => {
@@ -40,28 +39,7 @@ const AdminLayout = ({ children }) => {
         >
           CMS
         </Typography.Title>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "/dashboard",
-              icon: <DashboardOutlined />,
-              label: "Dashboard",
-            },
-            {
-              key: "/category",
-              icon: <VideoCameraOutlined />,
-              label: "Category",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "Menu",
-            },
-          ]}
-        />
+       <Sidebar />
       </Sider>
       <Layout>
         <Header

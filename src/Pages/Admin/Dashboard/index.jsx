@@ -2,7 +2,6 @@ import AdminLayout from "../../../Layouts/Admin/AdminLayout";
 import Indicator from "../../../Components/Admin/Indicator";
 
 const Dashboard = () => {
-    console.log('hello')
   return (
     <>
       <AdminLayout>

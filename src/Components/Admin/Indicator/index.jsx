@@ -5,7 +5,7 @@ const Indicator = () => {
   return (
     <>
       <Row gutter={16}>
-        <Col span={6}>
+        <Col sm={1} md={6}>
           <Card bordered={true}>
             <Statistic
               title="Active User"
@@ -17,7 +17,7 @@ const Indicator = () => {
             />
           </Card>
         </Col>
-        <Col span={6}>
+        <Col sm={1} md={6}>
           <Card bordered={true}>
             <Statistic
               title="Sales"
@@ -29,7 +29,7 @@ const Indicator = () => {
             />
           </Card>
         </Col>
-        <Col span={6}>
+        <Col sm={1} md={6}>
           <Card bordered={true}>
             <Statistic
               title="Product"
@@ -41,7 +41,7 @@ const Indicator = () => {
             />
           </Card>
         </Col>
-        <Col span={6}>
+        <Col sm={1} md={6}>
           <Card bordered={true}>
             <Statistic
               title="Website Visit"
