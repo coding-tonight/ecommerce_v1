@@ -4,6 +4,7 @@ import {
     VideoCameraOutlined,
   } from "@ant-design/icons";
 
+  
 const items = [
     {
         key: "/dashboard",
@@ -11,12 +12,12 @@ const items = [
         label: "Dashboard",
       },
       {
-        key: "/category",
+        key: "/dashboard/category",
         icon: <VideoCameraOutlined />,
         label: "Category",
       },
       {
-        key: "3",
+        key: "/dashboard/menu",
         icon: <UploadOutlined />,
         label: "Menu",
       },

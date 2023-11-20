@@ -45,7 +45,6 @@ const AppLayout = ({ children }) => {
         </Layout>
         <Footer style={{
           background: "#000",
-          marginTop: '10px',
           color: 'white'
         }}>
           <AppFooter />

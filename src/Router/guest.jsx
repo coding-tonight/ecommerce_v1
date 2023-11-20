@@ -6,6 +6,7 @@ import { lazy } from "react";
 
 const Home = lazy(() => import("@/Pages/Home"));
 const ProductPage = lazy(() => import("@/Pages/Reusable/Product"));
+const NotFound = lazy(()=> import('@/Pages/404'));
 
 const guestRoutes = [
   {
@@ -19,6 +20,13 @@ const guestRoutes = [
     key: "product",
     path: "/product/:id",
     element: <ProductPage />,
+    auth: false,
+    middlware: "guest",
+  },
+  {
+    key: "notfound",
+    path: "*",
+    element: <NotFound />,
     auth: false,
     middlware: "guest",
   },

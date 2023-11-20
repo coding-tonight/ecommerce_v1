@@ -7,7 +7,7 @@ const Info = () => {
       <section className="container mx-auto mt-10">
         <Divider>About us</Divider>
         <div className="flex justify-center gap-2 flex-wrap">
-          <div className="w-1/4 place-self-center">
+          <div className="w-11/12 sm:w-1/4  place-self-center">
             <h1>Our Design</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -22,7 +22,8 @@ const Info = () => {
             alt="info section image"
             style={{
               filter: 'grayscale(100%)',
-              height: '800px'
+              height: '800px',
+              objectFit: 'cover'
             }} />
         </div>
       </section>

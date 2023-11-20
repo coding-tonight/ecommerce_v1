@@ -1,5 +1,7 @@
- import Dashboard from "../Pages/Admin/Dashboard";
+ import { lazy } from "react";
  
+ const Dashboard  = lazy(() => import('@/Pages/Admin/Dashboard'));
+ const Category = lazy(() => import('@/Pages/Admin/Category'));
  
  const AdminRoute = [
     {
@@ -9,6 +11,13 @@
        auth: true,
        middleware: 'admin'
     },
+    {
+      key: 'category',
+      path: '/dashboard/category',
+      element: <Category />,
+      auth: true,
+      middleware: 'admin'
+   },
 ]
 
 export default AdminRoute;

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { Badge } from "antd";
 
 const Cards = () => {
@@ -18,14 +20,22 @@ const Cards = () => {
                 </button>
               </div>
             </div>
-            <h2 className="mt-3 text-xl capitalize">Summar Clothes</h2>
-            <del className="text-red-700 text-lg">NRS 49</del>
-            <p className="text-xl mt-2 ml-1 inline-block">NRS 35</p>
+            <Link to="/product/123" className="mt-3 text-xl capitalize cursor-pointer">
+              Summar Clothes
+            </Link>
+            <div>
+              <del className="text-red-700 text-md">NRS 49</del>
+              <p className="text-md mt-2 ml-1 inline-block">NRS 35</p>
+            </div>
           </div>
         </Badge.Ribbon>
       </section>
     </>
   );
+};
+
+Cards.propTypes = {
+  title: PropTypes.string,
 };
 
 export default Cards;
