@@ -20,7 +20,7 @@ const Cards = () => {
                 </button>
               </div>
             </div>
-            <Link to="/product/123" className="mt-3 text-xl capitalize cursor-pointer">
+            <Link to="/product/123/sweeter/xl/black/" className="mt-3 text-xl capitalize cursor-pointer">
               Summar Clothes
             </Link>
             <div>

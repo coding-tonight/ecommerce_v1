@@ -18,7 +18,7 @@ const guestRoutes = [
   },
   {
     key: "product",
-    path: "/product/:id",
+    path: "/product/:id/:name/:size/:color/",
     element: <ProductPage />,
     auth: false,
     middlware: "guest",
