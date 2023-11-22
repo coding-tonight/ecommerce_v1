@@ -1,16 +1,16 @@
-import PropTypes from "prop-types";
+import PropTypes, { object } from "prop-types";
 import { Breadcrumb } from "antd";
 
-const BreadCrumbs = ({ title }) => {
+const BreadCrumbs = ({ items }) => {
   return (
     <>
-      <Breadcrumb title={title} />
+      <Breadcrumb items={items} />
     </>
   );
 };
 
 BreadCrumbs.prototype = {
-  title: PropTypes.array, // [{ title: 'page name' }]
+  title: PropTypes.arrayOf(object), // [{ title: 'page name' }]
 };
 
 export default BreadCrumbs;

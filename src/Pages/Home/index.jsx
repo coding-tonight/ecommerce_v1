@@ -5,8 +5,6 @@ import Products from "../../Components/Products";
 import RecommendedProduct from "../../Components/RecomenededProduct";
 import Info from "../../Components/Info";
 // import Banner from "../../Components/Banner";
-import { FloatButton } from "antd";
-import { CaretUpOutlined } from '@ant-design/icons';
 
 const Home = () => {
   return (
@@ -15,7 +13,6 @@ const Home = () => {
         <Carousels />
         <Category />
         {/*  float button for back to top  */}
-        <FloatButton.BackTop  icon={<CaretUpOutlined /> } />
         <Products />
         <RecommendedProduct />
         {/* <Banner /> */}

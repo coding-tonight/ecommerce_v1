@@ -6,12 +6,13 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
   DashOutlined,
+  LogoutOutlined
 } from "@ant-design/icons";
 
 import Sidebar from "@/Components/Admin/sidebar";
 
 import { Layout, Button, theme, Typography } from "antd";
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content , Footer} = Layout;
 
 const AdminLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -58,17 +59,32 @@ const AdminLayout = ({ children }) => {
               height: 64,
             }}
           />
+            <Button
+            type="text"
+            icon={<LogoutOutlined />}
+            // onClick={() => setCollapsed(!collapsed)}
+            style={{
+              fontSize: "16px",
+              width: 64,
+              height: 64,
+              float: 'right'
+            }}
+          />
         </Header>
         <Content
           style={{
             margin: "24px 16px",
             padding: 24,
             minHeight: 280,
-            background: colorBgContainer,
+            // background: colorBgContainer,
           }}
         >
           {children}
         </Content>
+
+        <Footer>
+           footer section
+        </Footer>
       </Layout>
     </Layout>
   );
