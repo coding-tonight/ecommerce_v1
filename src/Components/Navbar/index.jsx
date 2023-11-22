@@ -7,6 +7,7 @@ import { useMedia } from "../../Hooks/MediaQuery/useMedia";
 import CartDrawer from "../Drawer/CartDrawer";
 import { auth } from "@/Common/AuthContext";
 import { Logo } from '@/Common/image'
+import { logout } from "@/config/axios/config";
 
 const { Search } = Input;
 
@@ -14,11 +15,6 @@ const Navbar = () => {
   const [openCart, setopenCart] = useState(false);
   const authData = auth(); // get user data for the auth context
 
-  // logout function for now
-  const logout = () => {
-    localStorage.clear();
-    window.location.reload();
-  }
 
 
   //  menu for user avatar

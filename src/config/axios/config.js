@@ -51,3 +51,7 @@ export const changePassword = (data) => {
   return privateAxios.post('forget/password/', data)
 }
 
+export const logout = () => {
+  localStorage.clear()
+  window.location.reload()
+}

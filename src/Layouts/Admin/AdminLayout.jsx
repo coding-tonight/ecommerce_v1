@@ -10,9 +10,12 @@ import {
 } from "@ant-design/icons";
 
 import Sidebar from "@/Components/Admin/sidebar";
+import { logout } from "@/config/axios/config";
 
 import { Layout, Button, theme, Typography } from "antd";
 const { Header, Sider, Content , Footer} = Layout;
+
+
 
 const AdminLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -62,7 +65,7 @@ const AdminLayout = ({ children }) => {
             <Button
             type="text"
             icon={<LogoutOutlined />}
-            // onClick={() => setCollapsed(!collapsed)}
+            onClick={logout}
             style={{
               fontSize: "16px",
               width: 64,
