@@ -7,7 +7,7 @@ import { base64Decode } from "@/Common/common"
  */
 
 const AdminMiddlware = () => {
-    const auth = JSON.parse(base64Decode(localStorage.getItem('userData'))) ?? false
+    const auth = base64Decode(JSON.parse((localStorage.getItem('userData'))))
     // if user is superuser then give access to the cms dashboard
     if(auth.is_superuser) {
         return <Outlet />
