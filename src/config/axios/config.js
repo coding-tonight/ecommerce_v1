@@ -11,7 +11,7 @@ export const publicAxios = axios.create({
 
 export const privateAxios = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  timeout: 4000,
+  timeout: 8000,
   headers: {
     "Content-Type": "application/json",
   }

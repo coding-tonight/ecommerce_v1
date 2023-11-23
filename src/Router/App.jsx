@@ -1,17 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 
+// middlewares
 import GuestMiddleware from "@/middleware/GuestMiddleware";
 import AdminMiddlware from "@/middleware/AdminMIddleware";
+import AuthMiddleware from "@/middleware/AuthMiddleware";
+import ResetMiddleware from "@/middleware/ResetMiddleware";
+
 // routes imports
 import AdminRoute from "./admin";
-import authRoutes from "./auth";
+import authRoutes, { changePasswordRoute } from "./auth";
 import guestRoutes from "./guest";
 import userRoutes from "./user";
 
 // preloader
 import Preloader from "@/Common/Preloader";
-import AuthMiddleware from "@/middleware/AuthMiddleware";
 
 const App = () => {
   return (
@@ -43,18 +46,31 @@ const App = () => {
           </Route>
 
           {/* user routes */}
-           <Route element={<AuthMiddleware />}>
-             {userRoutes.map(route => {
+          <Route element={<AuthMiddleware />}>
+            {userRoutes.map((route) => {
               return (
                 <Route
-                 key={route.key}
-                 path={route.path}
-                 element={route.element}
-                 />
-              )
-             })}
-           </Route>
-           
+                  key={route.key}
+                  path={route.path}
+                  element={route.element}
+                />
+              );
+            })}
+          </Route>
+
+          {/* reset password route */}
+          <Route element={<ResetMiddleware />}>
+            {changePasswordRoute.map((route) => {
+              return (
+                <Route
+                  key={route.key}
+                  path={route.path}
+                  element={route.element}
+                />
+              );
+            })}
+          </Route>
+
           {/* admin routes */}
           <Route element={<AdminMiddlware />}>
             {AdminRoute.map((name) => {

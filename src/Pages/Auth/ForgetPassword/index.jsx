@@ -21,7 +21,7 @@ const ForgetPassword = () => {
       if(response.data) {
         showSuccessNotification('success', 'Otp is successfully sent.')
         setTimeout(()=> {
-          window.location.href = '/'
+          window.location.href = '/verify/otp'
         },1000)
       }
       

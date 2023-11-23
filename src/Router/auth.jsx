@@ -4,6 +4,7 @@ const Register = lazy(() => import("@/Pages/Auth/Register"));
 const Login = lazy(() => import("@/Pages/Auth/Login"));
 const ForgetPassword = lazy(() => import("@/Pages/Auth/ForgetPassword"));
 const VerifyOtp = lazy(() => import('@/Pages/Auth/ForgetPassword/VerifyOpt/verifyOpt'));
+const RestPassword = lazy(() => import('@/Pages/Auth/ResetPassword'));
 
 
 const authRoutes = [
@@ -35,6 +36,16 @@ const authRoutes = [
         auth: false,
         middlware: "auth",
       },
+]
+
+export const changePasswordRoute = [
+   {
+    key: 'change',
+    path: '/change/password',
+    element: <RestPassword />,
+    auth: false,
+    middlware: 'rest'
+   }
 ]
 
 export default authRoutes;

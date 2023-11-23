@@ -11,6 +11,7 @@ const Info = () => {
             <>
               <Image
                 src={image.image}
+                key={image.key}
                 alt="info section image"
                 width={400}
                 height={500}
