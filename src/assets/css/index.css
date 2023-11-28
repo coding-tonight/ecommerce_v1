@@ -19,6 +19,14 @@ body , html {
 }
 
 
+.ant-menu-root {
+    > li:nth-of-type(1) {
+        &::after {
+            display: none;
+        }
+    }
+}
+
 /* .ant-spin-dot-item {
     background-color: rgb(240, 234, 234);
   } */

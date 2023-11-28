@@ -1,12 +1,49 @@
-import { useState } from "react";
-// import { Menu } from "antd";
-import { UnorderedListOutlined } from "@ant-design/icons";
+// import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Menu } from "antd";
+import {
+  UnorderedListOutlined,
+  MailOutlined,
+  AppstoreOutlined,
+  ShoppingOutlined,
+} from "@ant-design/icons";
 import { useMedia } from "../../Hooks/MediaQuery/useMedia";
-import Menu from './Menu/index';
+// import MegaMenu from './Menu/index';
+
+const items = [
+  {
+    label: "Categories",
+    key: "new",
+    icon: <AppstoreOutlined />,
+    children: [
+      {
+        label: "Men",
+        key: "setting:1",
+      },
+      {
+        label: "Women",
+        key: "setting:2",
+      },
+    ],
+  },
+  {
+    label: "Shop",
+    key: "/products",
+    icon: <ShoppingOutlined />,
+    // disabled: true,
+  },
+
+  {
+    label: "Contact",
+    key: "mail",
+    icon: <MailOutlined />,
+  },
+];
 
 const Menus = () => {
   const isMobile = useMedia("mobile");
-  const [openMenu, setOpenMenu] = useState(false);
+  // const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -16,10 +53,18 @@ const Menus = () => {
         </>
       ) : (
         <>
-        <div className="flex">
-          <Menu title="categories" openMenu={openMenu} setOpenMenu={setOpenMenu} />
-          {/* <Menu title="menu" openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
-        </div>
+          <div className="flex">
+            {/* <MegaMenu title="categories" openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
+            <Menu
+              items={items}
+              onClick={(item) => {
+                 navigate(item.key)
+              }}
+              selectedKeys={[window.location.pathname]}
+              disabledOverflow={true}
+              mode="horizontal"
+            />
+          </div>
         </>
       )}
     </>

@@ -16,7 +16,6 @@ const Navbar = () => {
   const authData = auth(); // get user data for the auth context
 
 
-
   //  menu for user avatar
   const items = [
     {

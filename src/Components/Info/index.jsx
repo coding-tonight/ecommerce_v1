@@ -5,7 +5,7 @@ const Info = () => {
   return (
     <>
       <section className="container mx-auto mt-10 mb-5">
-        <Divider>About us</Divider>
+        <Divider>Featured</Divider>
         <div className="flex justify-center gap-2 flex-wrap">
           {images.map((image) => (
             <>
