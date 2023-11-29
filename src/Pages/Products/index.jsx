@@ -2,6 +2,8 @@
 import AppLayout from "@/Layouts/AppLayout";
 import { Layout, theme } from "antd";
 
+import ProductPageHeader from "./Components/Header";
+
 const { Header, Sider, Content } = Layout;
 
 /**
@@ -39,7 +41,7 @@ const Products = () => {
                 backgroundColor: colorBgContainer,
               }}
             >
-              this is header filter
+              <ProductPageHeader />
             </Header>
             <Content>this is content section</Content>
           </Layout>
