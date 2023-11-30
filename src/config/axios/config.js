@@ -42,6 +42,11 @@ export const forgetPassword = (data) => {
   return publicAxios.post('forget/password/', data)
 }
 
+export const CategoryAPI = () => {
+  return publicAxios.get('category/all')
+}
+
+
 // private endpoints
 export const verifyOtp = (data) => {
   return privateAxios.post(`verify/otp/`, data)

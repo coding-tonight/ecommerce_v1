@@ -1,12 +1,32 @@
+// import { useCallback, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Divider, Space } from "antd";
 import { category } from "./icons/icons";
 
+import {
+  fetchCategory,
+  selectALLCategory,
+} from "@/Redux/Features/Category/CategorySlice";
+import { useEffect } from "react";
+
 const Category = () => {
+  const dispatch = useDispatch();
+  const categories =  useSelector(selectALLCategory);
+  let cateogory_status = useSelector((state) => state.category.status);
+  // const errors = useSelector(state => state.category.errors)
+ 
+  useEffect(() => {
+    if (cateogory_status = "idle") {
+      dispatch(fetchCategory());
+    }
+  }, []);
+
+  console.log(categories);
   return (
     <>
       <section className="mt-10 container mx-auto">
         <Divider>Categories</Divider>
-
+        {/* {errors && 'error'} */}
         <Space className="flex justify-around flex-wrap">
           {category.map((item) => (
             <div

@@ -53,7 +53,7 @@ const Menus = () => {
         </>
       ) : (
         <>
-          <div className="flex">
+          <div className="flex justify-center">
             {/* <MegaMenu title="categories" openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
             <Menu
               items={items}

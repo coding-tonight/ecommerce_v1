@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import { signal } from '@preact/signals-react';
+import { signal } from "@preact/signals-react";
 import { Select } from "antd";
 
-
-const provinceData = ['Zhejiang', 'Jiangsu'];
-const cityData = {
-  Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
-  Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
-};
-
 const ProductPageHeader = () => {
-   const cities = signal(provinceData[0])
-
-   const handleProvinceChange = (value) => {
-    cities.value = cityData[value];
-    // setSecondCity(cityData[value][0]);
+  const handleChange = (value) => {
+    console.log(value); 
   };
+
   return (
     <>
-      <section>
+      <section className="flex justify-end items-center">
         <Select
-          defaultValue={provinceData[0]}
+          labelInValue
+          defaultValue={{
+            value: "",
+            label: "Sort By",
+          }}
           style={{
             width: 120,
           }}
-          onChange={handleProvinceChange}
-          options={provinceData.map((province) => ({
-            label: province,
-            value: province,
-          }))}
+          onChange={handleChange}
+          options={[
+            {
+              value: "",
+              label: "Sort By",
+            },
+            {
+              value: "Asscending",
+              label: "Asscending Order",
+            },
+            {
+              value: "Desscending",
+              label: "Desscending Order",
+            },
+          ]}
         />
       </section>
     </>
