@@ -32,7 +32,7 @@ const CategorySlice = createSlice({
      //....  
     },
     extraReducers:(builder) => {
-        builder.addCase(fetchCategory.pending, (state, action) => {
+        builder.addCase(fetchCategory.pending, (state, action) => { 
             state.status = 'pending'
         })
         .addCase(fetchCategory.fulfilled, (state, action) => {

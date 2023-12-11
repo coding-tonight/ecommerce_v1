@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const intialState = {
     carts: [],
+    status: 'idle',
+    errors: null
 }
 
 const cartSlice = createSlice({
@@ -16,6 +18,7 @@ const cartSlice = createSlice({
          */
         addToCart: (state, action) => {
             const itemInCart = state.cart.find(item => action.payload.id == item.id);
+
             if (itemInCart) {
                 itemInCart.qty++;
             } else {
@@ -34,6 +37,9 @@ const cartSlice = createSlice({
             const item = state.cart.filter(item => action.payload.id !== item.id);
             state.cart = item;
         }
+    },
+    extraReducers: (builder) => {
+        // ....
     }
 })
 
