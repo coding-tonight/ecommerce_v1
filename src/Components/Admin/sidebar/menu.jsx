@@ -21,6 +21,11 @@ const items = [
         icon: <UploadOutlined />,
         label: "Menu",
       },
+      {
+        key: "/dashboard/all-product",
+        icon: <UploadOutlined />,
+        label: 'Store'
+      }
 ]
 
 export { items }

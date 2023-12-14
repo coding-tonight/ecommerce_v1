@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { Slider, InputNumber } from "antd";
+import { Slider, InputNumber, Checkbox } from "antd";
+
+const CheckboxGroup = Checkbox.Group;
+const plainOptions = ["Men", "Women", "Nepali", "Indian"];
 
 const ProductFilter = () => {
   const [InputValue, setInputValue] = useState(0);
@@ -18,9 +21,13 @@ const ProductFilter = () => {
         <div className="">
           <h1>Price</h1>
           <div>
-            <InputNumber value={InputValue[0]} onChange={onChange} />
+            <InputNumber value={InputValue[0]} onChange={onChange} style={{
+              width: '60px'
+            }} />
             -
-            <InputNumber value={InputValue[1]} onChange={onChange} />
+            <InputNumber value={InputValue[1]} onChange={onChange}  style={{
+              width: '60px'
+            }}/>
           </div>
           <Slider
             range
@@ -30,6 +37,14 @@ const ProductFilter = () => {
             onChange={onChange}
             onAfterChange={onAfterChange}
           />
+          <div className="my-5">
+            <h1>Categories</h1>
+            <CheckboxGroup
+              options={plainOptions}
+              // value={checkedList}
+              // onChange={onChange}
+            />
+          </div>
         </div>
       </aside>
     </>

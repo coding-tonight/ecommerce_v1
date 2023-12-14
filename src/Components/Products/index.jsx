@@ -3,9 +3,12 @@ import { TfiArrowRight } from "react-icons/tfi";
 import { Divider  } from "antd";
 import Cards from '../Card/index';
 import StickSlider from "../StickSliider";
+import { useSelector } from "react-redux";
 
 
 const Products = () => {
+  const products = useSelector(state => state.store)
+  console.log(products)
   return (
     <>
       <section className="container mx-auto mt-10">

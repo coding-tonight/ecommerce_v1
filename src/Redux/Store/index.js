@@ -1,11 +1,16 @@
+import { thunk } from "redux-thunk";
+import { applyMiddleware } from 'redux';
 import { configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
-// import cartSlice from "../Features/Cart/cartSlice";
-import CategorySlice from "../Features/Category/CategorySlice";
+// import { persistStore, persistReducer } from "redux-persist";
+import CartReduxer from '../Features/Cart/cartSlice'
+import CategoryReducer from "../Features/Category/CategorySlice";
+
+
 
 export default configureStore({
     reducer: {
-        // cart: cartSlice,
-        category: CategorySlice
+        cart: CartReduxer,
+        category: CategoryReducer,
     } ,
+    middleware: [thunk]
 })

@@ -1,48 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
-const intialState = {
-    carts: [],
+const initialState = {
+    store: [],
     status: 'idle',
+    totalAmount: 0,
+    totalCount: 0,
     errors: null
 }
 
-const cartSlice = createSlice({
-    name: 'cart',
-    intialState,
-    reducers: {
-        /**
-         *  cart feature such as add , update , delete 
-         * @param {*} state 
-         * @param {*} action 
-         */
-        addToCart: (state, action) => {
-            const itemInCart = state.cart.find(item => action.payload.id == item.id);
 
-            if (itemInCart) {
-                itemInCart.qty++;
-            } else {
-                state.cart.push({ ...action.payload, qty: 1 })
-            }
+export const cartSlice = createSlice({
+    name: 'cart',
+    initialState,
+    reducers: {
+        addToCart: (state, action) => {
+            const ItemInCart = state.store.find(item => item.id === action.payload.id)
+
+            if (ItemInCart) ItemInCart.qty++
+            else state.store.push({ ...action.payload, qty: 1 })
         },
-        incrementQty: (state, action) => {
-            const item = state.cart.find(item => action.payload.id == item.id);
-            item.qty++;
+        increaseQty: (state, action) => {
+            const ItemInCart = state.store.find(item => item.id === action.payload.id)
+
+            if (ItemInCart) ItemInCart.qty++
         },
-        decrementQty: (state, action) => {
-            const item = state.cart.find(item => action.payload.id == item.id);
-            item.qty--;
+        decreaseQty: (state, action) => {
+            const ItemInCart = state.store.find(item => item.id === action.payload.id)
+
+            if (ItemInCart) ItemInCart.qty --
         },
-        deleteFromCart: (state, action) => {
-            const item = state.cart.filter(item => action.payload.id !== item.id);
-            state.cart = item;
+
+        removeItem: (state, action) => {
+            state.store = state.store.filter(item => item.id !== action.payload.id)
+        },
+        clearCart: (state, action) => {
+            state.store = []
         }
     },
-    extraReducers: (builder) => {
-        // ....
-    }
 })
 
-export const { addToCart, incrementQty, decrementQty, deleteFromCart } = cartSlice.actions;
+export const { increaseQty ,addToCart , decreaseQty, clearCart, removeItem } = cartSlice.actions
 
-export default cartSlice.reducer;
+
+export default cartSlice.reducer
+
+

@@ -60,7 +60,9 @@ const Products = () => {
               <ProductPageHeader />
             </Header>
             <Content>
-              <section className="content"></section>
+              <section className="content">
+                 
+              </section>
             </Content>
           </Layout>
         </Layout>

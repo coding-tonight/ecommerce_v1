@@ -8,11 +8,25 @@ import CartDrawer from "../Drawer/CartDrawer";
 import { auth } from "@/Common/AuthContext";
 import { Logo } from '@/Common/image'
 import { logout } from "@/config/axios/config";
+import { useSelector } from "react-redux";
 
 const { Search } = Input;
 
 const Navbar = () => {
   const [openCart, setopenCart] = useState(false);
+  // accessing cart item length
+  const products = useSelector((state) => state.cart.store)
+  // console.log(products)
+    /**
+   *  media query
+   * @prams
+   * @type @boolean
+   */
+
+    const laptopWidth = useMedia("laptop");
+    const mobileWidth = useMedia("mobile");
+    /* end here */
+  
   const authData = auth(); // get user data for the auth context
 
 
@@ -73,16 +87,6 @@ const Navbar = () => {
 
   // console.log(authData);
 
-  /**
-   *  media query
-   * @prams
-   * @type @boolean
-   */
-
-  const laptopWidth = useMedia("laptop");
-  const mobileWidth = useMedia("mobile");
-  /* end here */
-
   //  search function
   const onSearch = () => {
     console.log("result of the search");
@@ -140,7 +144,7 @@ const Navbar = () => {
             display: mobileWidth ? "none" : "",
           }}
         >
-          <Badge count={4}>
+          <Badge count={products.length}>
             <ShoppingCartOutlined
               onClick={openCartFeature}
               style={{

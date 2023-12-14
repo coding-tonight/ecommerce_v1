@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/Redux/Features/Cart/cartSlice";
 import { Badge } from "antd";
 
 const Cards = () => {
+  const dispatch = useDispatch()
   return (
     <>
       <section className="mx-auto w-fit p-12">
@@ -15,7 +18,14 @@ const Cards = () => {
                 alt=""
               />
               <div className="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <button className="bg-black text-white py-2 px-5">
+                <button className="bg-black text-white py-2 px-5" onClick={() => dispatch(addToCart({
+                  id: Math.random,
+                  name: 'Test product',
+                  category: 'men',
+                  price: 4555,
+                  color:'Red',
+                  image: 'https://images.unsplash.com/photo-1659576294143-1da218a2d82e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
+                }))}>
                   Add to cart
                 </button>
               </div>
